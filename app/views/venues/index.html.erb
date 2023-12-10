@@ -1,0 +1,9 @@
+<div data-controller="search">
+  <%# search bar component - begin of script -BL %>
+    <%= render "shared/search_bar" %>
+  <%# grid system to display venues %>
+  <h1> Spaces close to you...</h1>
+  <div class="row" data-search-target="results" style="padding-bottom: 100px" data-search-target="cards">
+    <%= render "list", venues: @venues %>
+  </div>
+</div>

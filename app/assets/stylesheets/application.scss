@@ -1,0 +1,44 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+
+// body {
+//   background-color: white;
+// }
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+.card-video {
+  background-color: none;
+}
+
+@media (max-width:600px) {
+  .card-camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+  }
+
+}

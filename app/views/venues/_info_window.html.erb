@@ -1,0 +1,53 @@
+<div class="map-card">
+  <div class="d-flex" style="height: 100px; width: 100%;">
+    <div class="venue-image" style="background-image: url('<%= venue.image_urls.first %>')">
+      <%# <img src="<%= venue.image_urls.first %>
+    </div>
+    <div class="info-container">
+      <div class="info-card">
+        <%= link_to venue_path(venue.id) do %>
+          <h4><%= venue.name %></h4>
+          <p><%= venue.overview.truncate(40) %></p>
+          <p>
+            <% if venue.average_rating %>
+            <% full_stars = venue.average_rating.to_i %>
+                    <% full_stars.times do %>
+                      <i class="bi bi-star-fill" style="color: #FF8500; font-size: 17px;"></i>
+                    <% end %>
+
+                    <% if venue.average_rating.to_s.split(".")[1].to_i > 2 && venue.average_rating.to_s.split(".")[1].to_i < 8 %>
+                      <i class="bi bi-star-half" style="color: #FF8500; font-size: 17px;"></i>
+                      <% empty_stars = 5 - full_stars - 1 %>
+                    <% else %>
+                      <% empty_stars = 5 - full_stars %>
+                    <% end %>
+
+                    <% (empty_stars).times do %>
+                      <i class="bi bi-star" style="color: #FF8500; font-size: 17px;"></i>
+                    <% end %>
+
+                  <% else %>
+                    <% 5.times do %>
+                      <i class="bi bi-star" style="color: #D1D1D6; font-size: 17px;"></i>
+                    <% end %>
+                  <% end %>
+          </p>
+          <div class="info-window-icon-container">
+            <div class="icon-info-pair">
+              <i class="bi-person-add"></i>
+              <p><%= venue.capacity %></p>
+            </div>
+            <div class="icon-info-pair">
+              <i class="bi-wifi"></i>
+              <p><%= venue.wifi_speed %> mbit/s</p>
+            </div>
+            <div class="icon-info-pair">
+              <i class="bi-cursor"></i>
+              <p><%= venue.distance_to %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

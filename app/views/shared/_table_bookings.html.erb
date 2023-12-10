@@ -1,0 +1,22 @@
+<table class="styled-table">
+    <thead class="border-bottom p-2">
+        <tr>
+          <th>Venue</th>
+          <th>Date</th>
+          <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% user_bookings.sort_by { |b| [b.booking_date, b.venue.name] }.reverse.each do |b| %>
+        <tr class="border-bottom p-2">
+            <td><%= b.venue.name %></td>
+            <td><%= b.booking_date %></td>
+            <td>
+              <%= link_to booking_path(b) do %>
+                <i class='bi-search'></i> Details
+              <% end %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
