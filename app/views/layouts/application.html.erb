@@ -29,6 +29,8 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
+      <div id="map"></div>
+
       <% if params[:controller] == "venues" && params[:action] == "index" %>
       <div class="container" style="width: 90%">
         <%= yield %>
